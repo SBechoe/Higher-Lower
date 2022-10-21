@@ -1,0 +1,50 @@
+.wrapper {
+    width: 100%;
+}
+
+.game {
+    width: 60%;
+    margin: 0px auto;
+    padding-top: 2%;
+}
+
+.computer,
+.player {
+    width: 50%;
+    float: left;
+}
+
+.winner,
+.computerNumber,
+.computerName,
+.playerName,
+.playerNumber {
+    text-align: center;
+}
+
+.throwComputer,
+.throwPlayer {
+    display: block;
+    margin: 0px auto;
+}
+
+.choice {
+    width: 10%;
+    margin: 0px auto;
+}
+
+.coins {
+    width: 100%;
+}
+
+.computerCoins,
+.playerCoins {
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+.bet{
+    width: 20%;
+    margin: 0px auto;
+}
