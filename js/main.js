@@ -1,48 +1,94 @@
-// const startGame = confirm("Wil je het spel spelen?");
-// if (startGame == true) {
-//     playGame();
-// }
-let playerPoints = 20;
-let win;
-let lost;
-let draw;
+const computerBtn = document.querySelector('.throwComputer');
+const playerBtn = document.querySelector('.throwPlayer');
+const computerNumber = document.querySelector('.computerNumber');
+const playerNumber = document.querySelector('.playerNumber');
+const higherBtn = document.querySelector('.higher');
+const lowerBtn = document.querySelector('.lower');
+const message = document.querySelector('.message');
+const computerCoins = document.querySelector('.computerCoins');
+const playerCoins = document.querySelector('.playerCoins');
 
-function playGame() {
-    const name = prompt("Wat is je naam?");
-    while (playerPoints != 0) {
-        let pcDice = Math.floor(Math.random() * 6) + 1;
-        let playerDice = Math.floor(Math.random() * 6) + 1;
-        alert("De computer gooit " + pcDice);
-        let guess = prompt("Hoger of lager?");
-        alert(name + " gooit " + playerDice);
+let playerChoice = "Done";
+let computerDice;
+let playerDice;
+let bank = 50;
+let myCoins = 50;
+computerCoins.textContent = "Coins: " + bank;
+playerCoins.textContent = "Coins: " + myCoins;
 
-        if (guess == "hoger") {
-            if (playerDice > pcDice) {
-                win = alert(name + " wint!!");
-                playerPoints += 5;
-            } else if (playerDice < pcDice) {
-                lost = alert("Computer wint");
-                playerPoints -= 5;
-            } else if (playerDice == pcDice) {
-                draw = alert("Het is gelijkspel");
-            }
-        }
-        if (guess == "lager") {
+computerBtn.addEventListener('click', throwComputer);
+playerBtn.addEventListener('click', throwPlayer);
+higherBtn.addEventListener('click', function () {
+    playerChoice = 'Higher';
+    checkChoice();
+});
+lowerBtn.addEventListener('click', function () {
+    playerChoice = 'Lower';
+    checkChoice();
+});
 
-            if (playerDice < pcDice) {
-                win = alert(name + " wint!!");
-                playerPoints += 5;
-            } else if (playerDice > pcDice) {
-                lost = alert("Computer wint");
-                playerPoints -= 5;
-            } else if (playerDice == pcDice) {
-                draw = alert("Het is gelijkspel");
-            }
-        }
+function throwComputer() {
+    playerDice = undefined;
+    computerDice = Math.floor(Math.random() * 6) + 1;
+    computerNumber.textContent = computerDice;
+    message.textContent = "Computer heeft gegooid.";
+    playerChoice = "Empty"
+}
 
-        alert("Punten: " + playerPoints);
+function throwPlayer() {
+    checkChoice();
+    if (playerChoice !== "Done" && playerChoice !== "Empty") {
+        playerDice = Math.floor(Math.random() * 6) + 1;
+        checkChoice();
+        playerNumber.textContent = playerDice;
+        playerChoice = "Done";
     }
-    if (playerPoints == 0) {
-        alert("U heeft " + playerPoints + " punten, je hebt verloren!");
+}
+
+function checkChoice() {
+    if (playerChoice === "Higher") {
+        higher();
     }
+    if (playerChoice === "Lower") {
+        lower();
+    }
+    if (playerChoice === "Empty") {
+        message.textContent = "Kies eerst Hoger of Lager";
+    }
+    if (playerChoice === "Done"){
+        message.textContent = "Computer moet gooien";
+    }
+}
+
+function higher() {
+    if (playerDice > computerDice) {
+        message.textContent = "Speler wint!!";
+        bank -= 5;
+        myCoins += 5;
+    } else if (playerDice < computerDice) {
+        message.textContent = "Computer wint";
+        bank += 5;
+        myCoins -= 5;
+    } else if (playerDice === computerDice) {
+        message.textContent = "Het is gelijkspel";
+    }
+    computerCoins.textContent = "Coins: " + bank;
+    playerCoins.textContent = "Coins: " + myCoins;
+
+}
+
+function lower() {
+    if (playerDice < computerDice) {
+        message.textContent = "Speler wint!!";
+        bank -= 5;
+        myCoins += 5;
+    } else if (playerDice > computerDice) {
+        message.textContent = "Computer wint";
+        bank += 5;
+        myCoins -= 5;
+    } else if (playerDice == computerDice) {
+        message.textContent = "Het is gelijkspel";
+    }
+    computerCoins.textContent = "Coins: " + bank;
+    playerCoins.textContent = "Coins: " + myCoins;
 }
