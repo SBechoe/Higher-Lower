@@ -11,8 +11,8 @@ const playerCoins = document.querySelector('.playerCoins');
 let playerChoice = "Done";
 let computerDice;
 let playerDice;
-let bank = 50;
-let myCoins = 50;
+let bank = 5;
+let myCoins = 95;
 computerCoins.textContent = "Coins: " + bank;
 playerCoins.textContent = "Coins: " + myCoins;
 
@@ -74,6 +74,7 @@ function higher() {
     }
     computerCoins.textContent = "Coins: " + bank;
     playerCoins.textContent = "Coins: " + myCoins;
+    checkCoins();
 
 }
 
@@ -91,4 +92,15 @@ function lower() {
     }
     computerCoins.textContent = "Coins: " + bank;
     playerCoins.textContent = "Coins: " + myCoins;
+    checkCoins();
+}
+
+function checkCoins(){
+    if(myCoins === 0){
+        message.textContent = "The game is over, you lost!";
+        return;
+    }else if(myCoins === 100){
+        message.textContent = "You win!!";        
+        return;
+    }
 }
