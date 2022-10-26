@@ -1,11 +1,28 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans';
+}
+
+html,
+body {
+    height: 100%;
+}
+
 .wrapper {
     width: 100%;
+    height: 100%;
+    padding-top: 2%;
+    background-color: #c6ffc6;
 }
 
 .game {
     width: 60%;
     margin: 0px auto;
-    padding-top: 2%;
+    background-color: #ffffff99;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .computer,
@@ -15,26 +32,52 @@
 }
 
 .message,
-.computerNumber,
+.computerDice1,
+.computerDice2,
 .computerName,
 .playerName,
-.playerNumber {
+.playerDice1,
+.playerDice2 {
     text-align: center;
+}
+
+.message,
+.computerName,
+.playerName {
+    padding: 3%;
+    font-size: 40px;
+}
+
+.computerDice1,
+.computerDice2,
+.playerDice1,
+.playerDice2,
+.seperate {
+    width: 50%;
+    font-size: 25px;
+    padding: 4%;
+    display: inline;
+}
+
+
+.diceArea {
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    padding: 2% 0 5% 0;
 }
 
 .throwComputer,
 .throwPlayer {
     display: block;
-    margin: 0px auto;
-}
-
-.choice {
-    width: 10%;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
 .coins {
+    padding-top: 2%;
     width: 100%;
+    font-size: 20px;
+    clear: both;
 }
 
 .computerCoins,
@@ -44,7 +87,78 @@
     text-align: center;
 }
 
-.bet{
+.choice {
     width: 20%;
+    padding-top: 3%;
+    clear: both;
     margin: 0px auto;
 }
+
+.higher {
+    float: left;
+}
+
+.lower {
+    float: right;
+}
+
+.footer {
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 1%;
+    clear: both;
+}
+
+
+/*Internet CSS */
+.throwComputer,
+.throwPlayer,
+.higher,
+.lower {
+    background-color: #FCFCFD;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    color: #36395A;
+    cursor: pointer;
+    font-family: "JetBrains Mono", monospace;
+    height: 48px;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s, transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 18px;
+}
+
+.throwComputer:focus,
+.throwPlayer:focus,
+.higher:focus,
+.lower:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.throwComputer:hover,
+.throwPlayer:hover,
+.higher:hover,
+.lower:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.throwComputer:active,
+.throwPlayer:active,
+.higher:active,
+.lower:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
