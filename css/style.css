@@ -17,6 +17,7 @@ body {
     background-color: #c6ffc6;
 }
 
+
 .game {
     width: 60%;
     margin: 0px auto;
@@ -32,26 +33,26 @@ body {
 }
 
 .message,
-.computerDice1,
-.computerDice2,
-.computerName,
-.playerName,
-.playerDice1,
-.playerDice2 {
+.computer-dice1,
+.computer-dice2,
+.computer-name,
+.player-name,
+.player-dice1,
+.player-dice2 {
     text-align: center;
 }
 
 .message,
-.computerName,
-.playerName {
+.computer-name,
+.player-name {
     padding: 3%;
     font-size: 40px;
 }
 
-.computerDice1,
-.computerDice2,
-.playerDice1,
-.playerDice2,
+.computer-dice1,
+.computer-dice2,
+.player-dice1,
+.player-dice2,
 .seperate {
     width: 50%;
     font-size: 25px;
@@ -60,15 +61,15 @@ body {
 }
 
 
-.diceArea {
+.dice-area {
     width: 50%;
     text-align: center;
     margin: 0 auto;
     padding: 2% 0 5% 0;
 }
 
-.throwComputer,
-.throwPlayer {
+.throw-computer,
+.throw-player {
     display: block;
     margin: 0 auto;
 }
@@ -80,8 +81,8 @@ body {
     clear: both;
 }
 
-.computerCoins,
-.playerCoins {
+.computer-coins,
+.playerC-coins {
     width: 50%;
     float: left;
     text-align: center;
@@ -111,10 +112,11 @@ body {
 
 
 /*Internet CSS */
-.throwComputer,
-.throwPlayer,
+.throw-computer,
+.throw-player,
 .higher,
-.lower {
+.lower,
+.theme {
     background-color: #FCFCFD;
     border-radius: 4px;
     border-width: 0;
@@ -142,22 +144,25 @@ body {
 .throwComputer:focus,
 .throwPlayer:focus,
 .higher:focus,
-.lower:focus {
+.lower:focus,
+.theme:focus {
     box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }
 
-.throwComputer:hover,
-.throwPlayer:hover,
+.throw-computer:hover,
+.throw-player:hover,
 .higher:hover,
-.lower:hover {
+.lower:hover,
+.theme:hover {
     box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
     transform: translateY(-2px);
 }
 
-.throwComputer:active,
-.throwPlayer:active,
+.throw-computer:active,
+.throw-player:active,
 .higher:active,
-.lower:active {
+.lower:active,
+.theme:active {
     box-shadow: #D6D6E7 0 3px 7px inset;
     transform: translateY(2px);
 }

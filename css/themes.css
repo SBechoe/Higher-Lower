@@ -1,0 +1,44 @@
+/* Dark Theme */
+.dark-theme .wrapper {
+    background-color: #000000;
+}
+
+.dark-theme .game {
+    box-shadow: rgb(213 213 213 / 25%) 0px 50px 100px -20px, rgb(176 176 176 / 30%) 0px 30px 60px -30px, rgb(0 0 0 / 35%) 0px -2px 6px 0px inset;
+    background-color: #afafaf99;
+}
+
+.dark-theme .throw-computer,
+.dark-theme .throw-player,
+.dark-theme .higher,
+.dark-theme .lower,
+.dark-theme .theme {
+    background-color: #b7b7b7;
+    box-shadow: rgb(45 35 66 / 40%) 0 2px 4px, rgb(45 35 66 / 30%) 0 7px 13px -3px, #858585 0 -3px 0 inset;
+}
+
+.dark-theme .throwComputer:focus,
+.dark-theme .throwPlayer:focus,
+.dark-theme .higher:focus,
+.dark-theme .lower:focus,
+.dark-theme .theme:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.dark-theme .throw-computer:hover,
+.dark-theme .throw-player:hover,
+.dark-theme .higher:hover,
+.dark-theme .lower:hover,
+.dark-theme .theme:hover {
+    box-shadow: rgb(45 35 66 / 40%) 0 4px 8px, rgb(45 35 66 / 30%) 0 7px 13px -3px, #6d6d6e 0 -3px 0 inset; 
+    transform: translateY(-2px);
+}
+
+.dark-theme .throw-computer:active,
+.dark-theme .throw-player:active,
+.dark-theme .higher:active,
+.dark-theme .lower:active,
+.dark-theme .theme:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+}

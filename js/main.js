@@ -1,27 +1,27 @@
-const computerBtn = document.querySelector('.throwComputer');
-const playerBtn = document.querySelector('.throwPlayer');
-const computerNumber1 = document.querySelector('.computerDice1');
-const computerNumber2 = document.querySelector('.computerDice2');
-const playerNumber1 = document.querySelector('.playerDice1');
-const playerNumber2 = document.querySelector('.playerDice2');
+const computerBtn = document.querySelector('.throw-computer');
+const playerBtn = document.querySelector('.throw-player');
+const computerNumber1 = document.querySelector('.computer-dice1');
+const computerNumber2 = document.querySelector('.computer-dice2');
+const playerNumber1 = document.querySelector('.player-dice1');
+const playerNumber2 = document.querySelector('.player-dice2');
 const higherBtn = document.querySelector('.higher');
 const lowerBtn = document.querySelector('.lower');
 const message = document.querySelector('.message');
-const computerCoins = document.querySelector('.computerCoins');
-const playerCoins = document.querySelector('.playerCoins');
+const computerCoins = document.querySelector('.computer-coins');
+const playerCoins = document.querySelector('.player-coins');
+const themeBtn = document.querySelector('.theme');
+const body = document.querySelector('.body');
 
 let playerChoice = "Done";
-let computerDice1;
-let computerDice2;
-let computerTotal;
-let playerDice1;
-let playerDice2;
-let playerTotal;
+let computerDice1, computerDice2, computerTotal;
+let playerDice1, playerDice2, playerTotal;
 let bank = 50;
 let myCoins = 50;
+
 computerCoins.textContent = "Coins: " + bank;
 playerCoins.textContent = "Coins: " + myCoins;
 
+themeBtn.addEventListener('click', switchTheme);
 computerBtn.addEventListener('click', throwComputer);
 playerBtn.addEventListener('click', throwPlayer);
 higherBtn.addEventListener('click', function () {
@@ -116,4 +116,9 @@ function checkCoins() {
         message.textContent = "You win!!";
         return;
     }
+}
+
+//switch theme
+function switchTheme(){
+    body.classList.add('dark-theme');
 }
