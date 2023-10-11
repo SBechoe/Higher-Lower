@@ -69,8 +69,8 @@ function throwComputer() {
     if (computerState == "Start") {
         playerDice1 = 0;
         playerDice2 = 0;
-        computerDice1 = Math.floor(Math.random() * 1);
-        computerDice2 = Math.floor(Math.random() * 1);
+        computerDice1 = Math.floor(Math.random() * 6);
+        computerDice2 = Math.floor(Math.random() * 6);
         computerNumber1.innerHTML = dices[computerDice1];
         computerNumber2.innerHTML = dices[computerDice2];
         computerTotal = computerDice1 + 1 + computerDice2 + 1;
@@ -82,8 +82,8 @@ function throwComputer() {
 
 function throwPlayer() {
     if (playerState !== "Start" && playerState !== "Empty") {
-        playerDice1 = Math.floor(Math.random() * 1);
-        playerDice2 = Math.floor(Math.random() * 1);
+        playerDice1 = Math.floor(Math.random() * 6);
+        playerDice2 = Math.floor(Math.random() * 6);
         playerTotal = playerDice1 + 1 + playerDice2 + 1;
         checkChoice();
         playerNumber1.innerHTML = dices[playerDice1];
