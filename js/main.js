@@ -27,11 +27,11 @@ const spadesDeck = ["/img/ace_of_spades.png",
 
 let playerState = "Start";
 let computerState = "Start"
-let computerDice1;
-let computerDice2;
+let computerCard1;
+let computerCard2;
 let computerTotal;
-let playerDice1;
-let playerDice2;
+let playerCard1;
+let playerCard2;
 let playerTotal;
 let bankCoins = 50;
 let myCoins = 10;
@@ -67,13 +67,13 @@ drawBtn.addEventListener('click', function () {
 
 function throwComputer() {
     if (computerState == "Start") {
-        playerDice1 = 0;
-        playerDice2 = 0;
-        computerDice1 = Math.floor(Math.random() * 6);
-        computerDice2 = Math.floor(Math.random() * 6);
-        computerNumber1.innerHTML = dices[computerDice1];
-        computerNumber2.innerHTML = dices[computerDice2];
-        computerTotal = computerDice1 + 1 + computerDice2 + 1;
+        playerCard1 = 0;
+        playerCard2 = 0;
+        computerCard1 = Math.floor(Math.random() * 6);
+        computerCard2 = Math.floor(Math.random() * 6);
+        computerNumber1.innerHTML = Cards[computerCard1];
+        computerNumber2.innerHTML = Cards[computerCard2];
+        computerTotal = computerCard1 + 1 + computerCard2 + 1;
         message.innerHTML = "Computer heeft " + computerTotal + " gegooid.";
         playerState = "Empty";
         computerState = "Done";
@@ -82,12 +82,12 @@ function throwComputer() {
 
 function throwPlayer() {
     if (playerState !== "Start" && playerState !== "Empty") {
-        playerDice1 = Math.floor(Math.random() * 6);
-        playerDice2 = Math.floor(Math.random() * 6);
-        playerTotal = playerDice1 + 1 + playerDice2 + 1;
+        playerCard1 = Math.floor(Math.random() * 6);
+        playerCard2 = Math.floor(Math.random() * 6);
+        playerTotal = playerCard1 + 1 + playerCard2 + 1;
         checkChoice();
-        playerNumber1.innerHTML = dices[playerDice1];
-        playerNumber2.innerHTML = dices[playerDice2];
+        playerNumber1.innerHTML = Cards[playerCard1];
+        playerNumber2.innerHTML = Cards[playerCard2];
         playerState = "Start";
         computerState = "Start";
     } else {
