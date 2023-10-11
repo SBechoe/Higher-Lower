@@ -11,6 +11,20 @@ const message = document.querySelector('.message');
 const computerCoins = document.querySelector('.computerCoins');
 const playerCoins = document.querySelector('.playerCoins');
 
+const spadesDeck = ["/img/ace_of_spades.png",
+    "/img/2_of_spades.png",
+    "/img/3_of_spades.png",
+    "/img/4_of_spades.png",
+    "/img/5_of_spades.png",
+    "/img/6_of_spades.png",
+    "/img/7_of_spades.png",
+    "/img/8_of_spades.png",
+    "/img/9_of_spades.png",
+    "/img/10_of_spades.png",
+    "/img/jack_of_spades.png",
+    "/img/queen_of_spades.png",
+    "/img/king_of_spades.png"]
+
 let playerState = "Start";
 let computerState = "Start"
 let computerDice1;
@@ -21,7 +35,7 @@ let playerDice2;
 let playerTotal;
 let bankCoins = 50;
 let myCoins = 10;
-const dices = ["&#9856;", "&#9857;", "&#9858;", "&#9859;", "&#9860;", "&#9861;"];
+
 
 computerCoins.textContent = "Coins: " + bankCoins;
 playerCoins.textContent = "Coins: " + myCoins;
