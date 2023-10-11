@@ -59,6 +59,9 @@ body {
     display: inline;
 }
 
+.dice{
+    font-size: 80px;
+}
 
 .diceArea {
     width: 50%;
