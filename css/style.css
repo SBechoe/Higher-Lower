@@ -17,12 +17,34 @@ body {
     background-color: #c6ffc6;
 }
 
+.radio-box {
+  display: inline;
+  margin: 13%;
+}
+
+input {
+    width: 20px;
+    height: 20px;
+}
+
+label {
+    font-size: 30px;
+}
+
+.confirm-game-mode{
+    margin-top: 10%;
+}
+
 .game {
     width: 60%;
     margin: 0px auto;
     background-color: #ffffff99;
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.hidden {
+    display: none;
 }
 
 .computer,
@@ -59,7 +81,7 @@ body {
     display: inline;
 }
 
-.dice{
+.dice {
     font-size: 80px;
 }
 
@@ -97,7 +119,7 @@ body {
     margin: 0px auto;
 }
 
-.draw{
+.draw {
     margin: 0 10%;
 }
 
@@ -113,7 +135,8 @@ body {
 .throwPlayer,
 .higher,
 .lower,
-.draw {
+.draw,
+.confirm-game-mode {
     background-color: #FCFCFD;
     border-radius: 4px;
     border-width: 0;
@@ -142,7 +165,8 @@ body {
 .throwPlayer:focus,
 .higher:focus,
 .lower:focus,
-.draw:focus {
+.draw:focus,
+.confirm-game-mode:focus {
     box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }
 
@@ -150,7 +174,8 @@ body {
 .throwPlayer:hover,
 .higher:hover,
 .lower:hover,
-.draw:hover {
+.draw:hover,
+.confirm-game-mode:hover {
     box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
     transform: translateY(-2px);
 }
@@ -159,8 +184,8 @@ body {
 .throwPlayer:active,
 .higher:active,
 .lower:active,
-.draw:active {
+.draw:active,
+.confirm-game-mode:active {
     box-shadow: #D6D6E7 0 3px 7px inset;
     transform: translateY(2px);
 }
-
