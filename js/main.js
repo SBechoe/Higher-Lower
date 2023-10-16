@@ -1,3 +1,11 @@
+const chooseGame = document.querySelector('.choose-game');
+const gameScreen = document.querySelector('.game-screen');
+const gameModeChoice = document.querySelector('.choose-game-mode');
+const diceRadio = document.querySelector('.dice-choice');
+const cardRadio = document.querySelector('.card-choice');
+const dicesEl = document.querySelectorAll('.dices');
+const cardsEl = document.querySelectorAll('.cards');
+const confirmGame = document.querySelector('.confirm-game-mode');
 const computerBtn = document.querySelector('.throwComputer');
 const playerBtn = document.querySelector('.throwPlayer');
 const computerNumber1 = document.querySelector('.computerDice1');
@@ -25,13 +33,14 @@ const spadesDeck = ["/img/ace_of_spades.png",
     "/img/queen_of_spades.png",
     "/img/king_of_spades.png"]
 
-let playerState = "Start";
-let computerState = "Start"
-let computerCard1;
-let computerCard2;
+let gameMode = "empty";
+let playerState = "start";
+let computerState = "start";
+let computerDice1;
+let computerDice2;
 let computerTotal;
-let playerCard1;
-let playerCard2;
+let playerDice1;
+let playerDice2;
 let playerTotal;
 let bankCoins = 50;
 let myCoins = 10;
@@ -43,53 +52,85 @@ playerCoins.textContent = "Coins: " + myCoins;
 computerBtn.addEventListener('click', throwComputer);
 playerBtn.addEventListener('click', throwPlayer);
 
+confirmGame.addEventListener('click', function () {
+    if (diceRadio.checked == true) {
+        gameMode = "dices";
+        chooseGame.classList.toggle('hidden');
+        gameScreen.classList.toggle('hidden');
+        startGame();
+
+    } else if (cardRadio.checked == true) {
+        gameMode = "cards";
+        chooseGame.classList.toggle('hidden');
+        gameScreen.classList.toggle('hidden');
+        startGame();
+    } else {
+        gameModeChoice.textContent += "!";
+    }
+});
+
 higherBtn.addEventListener('click', function () {
-    if (computerState == "Done") {
-        playerState = 'Higher';
-    } else {
-        checkChoice();
-    }
-});
-lowerBtn.addEventListener('click', function () {
-    if (computerState == "Done") {
-        playerState = 'Lower';
-    } else {
-        checkChoice();
-    }
-});
-drawBtn.addEventListener('click', function () {
-    if (computerState == "Done") {
-        playerState = 'Draw';
+    if (computerState == "done") {
+        playerState = 'higher';
     } else {
         checkChoice();
     }
 });
 
+lowerBtn.addEventListener('click', function () {
+    if (computerState == "done") {
+        playerState = 'lower';
+    } else {
+        checkChoice();
+    }
+});
+
+drawBtn.addEventListener('click', function () {
+    if (computerState == "done") {
+        playerState = 'draw';
+    } else {
+        checkChoice();
+    }
+});
+
+
+function startGame() {
+    if (gameMode == "dices") {
+        for (let i = 0; i < cardsEl.length; i++) {
+            cardsEl[i].classList.toggle('hidden');
+        }
+    } else if (gameMode == "cards") {
+        for (let i = 0; i < dicesEl.length; i++) {
+            dicesEl[i].classList.toggle('hidden');
+        }
+    }
+}
+
 function throwComputer() {
-    if (computerState == "Start") {
-        playerCard1 = 0;
-        playerCard2 = 0;
-        computerCard1 = Math.floor(Math.random() * 6);
-        computerCard2 = Math.floor(Math.random() * 6);
-        computerNumber1.innerHTML = Cards[computerCard1];
-        computerNumber2.innerHTML = Cards[computerCard2];
-        computerTotal = computerCard1 + 1 + computerCard2 + 1;
+    if (computerState == "start") {
+        playerDice1 = 0;
+        playerDice2 = 0;
+        computerDice1 = Math.floor(Math.random() * 6);
+        computerDice2 = Math.floor(Math.random() * 6);
+        computerNumber1.innerHTML = dices[computerDice1];
+        computerNumber2.innerHTML = dices[computerDice2];
+        computerTotal = computerDice1 + 1 + computerDice2 + 1;
         message.innerHTML = "Computer heeft " + computerTotal + " gegooid.";
-        playerState = "Empty";
-        computerState = "Done";
+        playerState = "empty";
+        computerState = "done";
     }
 }
 
 function throwPlayer() {
     if (playerState !== "Start" && playerState !== "Empty") {
-        playerCard1 = Math.floor(Math.random() * 6);
-        playerCard2 = Math.floor(Math.random() * 6);
-        playerTotal = playerCard1 + 1 + playerCard2 + 1;
+        playerDice1 = Math.floor(Math.random() * 6);
+        playerDice2 = Math.floor(Math.random() * 6);
+        playerTotal = playerDice1 + 1 + playerDice2 + 1;
         checkChoice();
-        playerNumber1.innerHTML = Cards[playerCard1];
-        playerNumber2.innerHTML = Cards[playerCard2];
-        playerState = "Start";
-        computerState = "Start";
+        playerNumber1.innerHTML = dices[playerDice1];
+        playerNumber2.innerHTML = dices[playerDice2];
+        playerState = "start";
+        computerState = "start";
     } else {
         checkChoice();
     }
@@ -97,19 +138,19 @@ function throwPlayer() {
 
 function checkChoice() {
     switch (playerState) {
-        case "Empty":
+        case "empty":
             message.innerHTML = "Choose Higher or Lower";
             break;
-        case "Start":
+        case "start":
             message.innerHTML = "Not your turn! It is the Computer turn!";
             break;
-        case "Higher":
+        case "higher":
             higher();
             break;
-        case "Lower":
+        case "lower":
             lower();
             break;
-        case "Draw":
+        case "draw":
             draw();
             break;
     }

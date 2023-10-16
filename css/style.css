@@ -36,7 +36,7 @@ label {
 }
 
 .game {
-    width: 60%;
+    max-width: 90%;
     margin: 0px auto;
     background-color: #ffffff99;
     border-radius: 10px;
@@ -85,17 +85,22 @@ label {
     font-size: 80px;
 }
 
-.diceArea {
+.game-area {
     width: 50%;
     text-align: center;
     margin: 0 auto;
     padding: 2% 0 5% 0;
 }
 
+.game-area img {
+    width: 38%;
+    max-width: 40%;
+}
+
 .throwComputer,
 .throwPlayer {
     display: block;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
 .coins {
@@ -113,6 +118,8 @@ label {
 }
 
 .choice {
+    display: flex;
+    justify-content: space-between;
     width: 30%;
     padding-top: 3%;
     clear: both;

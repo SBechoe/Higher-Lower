@@ -14,36 +14,46 @@
     <div class="wrapper">
         <div class="choose-game game">
             <h2 class="message">Welcome!</h2>
-            <h3 class="message">Choose game to play</h3>
-            <div class="diceArea">
+            <h3 class="message choose-game-mode">Choose gamemode to play</h3>
+            <div class="game-area">
                 <div class="radio-box">
-                    <input type="radio" name="game-mode" value="dices">
+                    <input type="radio" name="game-mode" class="dice-choice" value="dices">
                     <label for="dices">Dices</label>
                 </div>
                 <div class="radio-box">
-                    <input type="radio" name="game-mode" value="cards">
+                    <input type="radio" name="game-mode" class="card-choice" value="cards">
                     <label for="cards">Cards</label>
                 </div>
                 <button class="confirm-game-mode">Confirm gamemode</button>
             </div>
         </div>
-        <div class="game hidden">
+        <div class="game game-screen hidden">
             <h2 class="message">Welcome!</h2>
             <section class="computer">
                 <h2 class="computerName">Computer</h2>
-                <div class="diceArea">
+                <div class="game-area dices">
                     <p class="computerDice1 dice">&#11217;</p>
                     <p class="seperate"> en </p>
                     <p class="computerDice2 dice">&#11217;</p>
+                </div>
+                <div class="game-area cards">
+                    <img class="computer-card1" src="img/red-back.png" alt="back of cards">
+                    <p class="seperate"> en </p>
+                    <img class="computer-card2" src="img/red-back.png" alt="back of cards">
                 </div>
                 <button class="throwComputer">Throw!</button>
             </section>
             <section class="player">
                 <h2 class="playerName">Player</h2>
-                <div class="diceArea">
+                <div class="game-area dices">
                     <p class="playerDice1 dice">&#11217;</p>
                     <p class="seperate"> en </p>
                     <p class="playerDice2 dice">&#11217;</p>
+                </div>
+                <div class="game-area cards">
+                    <img class="player-card1" src="img/blue-back.png" alt="back of cards">
+                    <p class="seperate"> en </p>
+                    <img class="player-card2" src="img/blue-back.png" alt="back of cards">
                 </div>
                 <button class="throwPlayer">Throw!</button>
             </section>
