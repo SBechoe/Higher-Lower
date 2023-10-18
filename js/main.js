@@ -6,20 +6,27 @@ const cardRadio = document.querySelector('.card-choice');
 const dicesEl = document.querySelectorAll('.dices');
 const cardsEl = document.querySelectorAll('.cards');
 const confirmGame = document.querySelector('.confirm-game-mode');
-const computerBtn = document.querySelector('.throwComputer');
-const playerBtn = document.querySelector('.throwPlayer');
-const computerNumber1 = document.querySelector('.computerDice1');
-const computerNumber2 = document.querySelector('.computerDice2');
-const playerNumber1 = document.querySelector('.playerDice1');
-const playerNumber2 = document.querySelector('.playerDice2');
+const computerBtn = document.querySelector('.throw-Computer');
+const playerBtn = document.querySelector('.throw-Player');
+const computerDice1El = document.querySelector('.computer-Dice1');
+const computerDice2El = document.querySelector('.computer-Dice2');
+const playerDice1El = document.querySelector('.player-Dice1');
+const playerDice2El = document.querySelector('.player-Dice2');
+const computerCard1El = document.querySelector('.computer-card1');
+const computerCard2El = document.querySelector('.computer-card2');
+const playerCard1El = document.querySelector('.player-card1');
+const playerCard2El = document.querySelector('.player-card2');
 const higherBtn = document.querySelector('.higher');
 const drawBtn = document.querySelector('.draw');
 const lowerBtn = document.querySelector('.lower');
-const message = document.querySelector('.message');
-const computerCoins = document.querySelector('.computerCoins');
-const playerCoins = document.querySelector('.playerCoins');
+const message = document.querySelector('.outcome');
+const computerCoins = document.querySelector('.computer-Coins');
+const playerCoins = document.querySelector('.player-Coins');
 
-const spadesDeck = ["/img/ace_of_spades.png",
+const dices = ["&#9856;", "&#9857;", "&#9858;", "&#9859;", "&#9860;", "&#9861;"];
+
+const spades = [
+    "/img/ace_of_spades.png",
     "/img/2_of_spades.png",
     "/img/3_of_spades.png",
     "/img/4_of_spades.png",
@@ -29,18 +36,66 @@ const spadesDeck = ["/img/ace_of_spades.png",
     "/img/8_of_spades.png",
     "/img/9_of_spades.png",
     "/img/10_of_spades.png",
-    "/img/jack_of_spades.png",
-    "/img/queen_of_spades.png",
-    "/img/king_of_spades.png"]
+    "/img/jack_of_spades2.png",
+    "/img/queen_of_spades2.png",
+    "/img/king_of_spades2.png"
+];
+const clubs = [
+    "/img/ace_of_clubs.png",
+    "/img/2_of_clubs.png",
+    "/img/3_of_clubs.png",
+    "/img/4_of_clubs.png",
+    "/img/5_of_clubs.png",
+    "/img/6_of_clubs.png",
+    "/img/7_of_clubs.png",
+    "/img/8_of_clubs.png",
+    "/img/9_of_clubs.png",
+    "/img/10_of_clubs.png",
+    "/img/jack_of_clubs2.png",
+    "/img/queen_of_clubs2.png",
+    "/img/king_of_clubs2.png"
+];
+const hearts = [
+    "/img/ace_of_hearts.png",
+    "/img/2_of_hearts.png",
+    "/img/3_of_hearts.png",
+    "/img/4_of_hearts.png",
+    "/img/5_of_hearts.png",
+    "/img/6_of_hearts.png",
+    "/img/7_of_hearts.png",
+    "/img/8_of_hearts.png",
+    "/img/9_of_hearts.png",
+    "/img/10_of_hearts.png",
+    "/img/jack_of_hearts2.png",
+    "/img/queen_of_hearts2.png",
+    "/img/king_of_hearts2.png"
+];
+const diamonds = [
+    "/img/ace_of_diamonds.png",
+    "/img/2_of_diamonds.png",
+    "/img/3_of_diamonds.png",
+    "/img/4_of_diamonds.png",
+    "/img/5_of_diamonds.png",
+    "/img/6_of_diamonds.png",
+    "/img/7_of_diamonds.png",
+    "/img/8_of_diamonds.png",
+    "/img/9_of_diamonds.png",
+    "/img/10_of_diamonds.png",
+    "/img/jack_of_diamonds2.png",
+    "/img/queen_of_diamonds2.png",
+    "/img/king_of_diamonds2.png"
+];
 
 let gameMode = "empty";
 let playerState = "start";
 let computerState = "start";
-let computerDice1;
-let computerDice2;
+let randomFigure;
+let figure;
+let computerNumber1 = 0;
+let computerNumber2 = 0;
 let computerTotal;
-let playerDice1;
-let playerDice2;
+let playerNumber1 = 0;
+let playerNumber2 = 0;
 let playerTotal;
 let bankCoins = 50;
 let myCoins = 10;
@@ -103,34 +158,85 @@ function startGame() {
         for (let i = 0; i < dicesEl.length; i++) {
             dicesEl[i].classList.toggle('hidden');
         }
+        computerBtn.innerHTML = "Draw card";
+        playerBtn.innerHTML = "Draw card";
+    }
+}
+
+function pickRandomFigure() {
+    randomFigure = Math.floor(Math.random() * 4) + 1;
+    switch (randomFigure) {
+        case 1:
+            figure = spades;
+            break;
+        case 2:
+            figure = hearts;
+            break;
+        case 3:
+            figure = diamonds;
+            break;
+        case 4:
+            figure = clubs;
+            break;
     }
 }
 
 function throwComputer() {
     if (computerState == "start") {
-        playerDice1 = 0;
-        playerDice2 = 0;
-        computerDice1 = Math.floor(Math.random() * 6);
-        computerDice2 = Math.floor(Math.random() * 6);
-        computerNumber1.innerHTML = dices[computerDice1];
-        computerNumber2.innerHTML = dices[computerDice2];
-        computerTotal = computerDice1 + 1 + computerDice2 + 1;
-        message.innerHTML = "Computer heeft " + computerTotal + " gegooid.";
+        playerNumber1 = 0;
+        playerNumber2 = 0;
+
+        if (gameMode == "dices") {
+            computerNumber1 = Math.floor(Math.random() * 6);
+            computerNumber2 = Math.floor(Math.random() * 6);
+            computerDice1El.innerHTML = dices[computerNumber1];
+            computerDice2El.innerHTML = dices[computerNumber2];
+        } else if (gameMode == "cards") {
+            while (computerNumber1 == 0 || computerNumber2 == 0) {
+                pickRandomFigure();
+                computerNumber1 = Math.floor(Math.random() * 13);
+                computerCard1El.src = figure[computerNumber1];
+                pickRandomFigure();
+                computerNumber2 = Math.floor(Math.random() * 13);
+                computerCard2El.src = figure[computerNumber2];
+            }
+        }
+        computerTotal = computerNumber1 + 1 + computerNumber2 + 1;
+        message.innerHTML = "Computer total is " + computerTotal;
         playerState = "empty";
         computerState = "done";
+    } else if (computerState == "done") {
+        message.innerHTML = "Computer had its turn.";
     }
 }
 
 function throwPlayer() {
-    if (playerState !== "Start" && playerState !== "Empty") {
-        playerDice1 = Math.floor(Math.random() * 6);
-        playerDice2 = Math.floor(Math.random() * 6);
-        playerTotal = playerDice1 + 1 + playerDice2 + 1;
+    if (playerState !== "start" && playerState !== "empty") {
+
+        if (gameMode == "dices") {
+            playerNumber1 = Math.floor(Math.random() * 6);
+            playerNumber2 = Math.floor(Math.random() * 6);
+            playerDice1El.innerHTML = dices[playerNumber1];
+            playerDice2El.innerHTML = dices[playerNumber2];
+
+        } else if (gameMode == "cards") {
+            while (playerNumber1 == 0 || playerNumber2 == 0) {
+                pickRandomFigure();
+                playerNumber1 = Math.floor(Math.random() * 13);
+                playerCard1El.src = figure[playerNumber1];
+                pickRandomFigure();
+                playerNumber2 = Math.floor(Math.random() * 13);
+                playerCard2El.src = figure[playerNumber2];
+            }
+        }
+        playerTotal = playerNumber1 + 1 + playerNumber2 + 1;
         checkChoice();
-        playerNumber1.innerHTML = dices[playerDice1];
-        playerNumber2.innerHTML = dices[playerDice2];
+
         playerState = "start";
         computerState = "start";
+
+        computerNumber1 = 0;
+        computerNumber2 = 0;
     } else {
         checkChoice();
     }
@@ -158,61 +264,70 @@ function checkChoice() {
 
 function higher() {
     if (playerTotal > computerTotal) {
-        message.innerHTML = "Player wins!!" + " You threw " + playerTotal;
+        message.innerHTML = "Player wins!!" + " Your total is " + playerTotal;
         bankCoins -= 5;
         myCoins += 5;
     } else if (playerTotal < computerTotal) {
-        message.innerHTML = "Computer wins." + " You threw " + playerTotal;
+        message.innerHTML = "Computer wins." + " Your total is " + playerTotal;
         bankCoins += 5;
         myCoins -= 5;
     } else if (playerTotal === computerTotal) {
-        message.innerHTML = "It's a draw!" + " You also threw " + playerTotal;
+        message.innerHTML = "It's a draw!" + " Your total is also " + playerTotal;
     }
     computerCoins.textContent = "Coins: " + bankCoins;
     playerCoins.textContent = "Coins: " + myCoins;
-    setTimeout(checkCoins, 5000);
-
+    checkCoins();
 }
 
 function draw() {
     if (playerTotal == computerTotal) {
-        message.innerHTML = "Jackpot!" + "<br>" + "It's a draw!" + " You also threw " + playerTotal;
+        message.innerHTML = "Jackpot!" + "<br>" + "It's a draw!" + " Your total is also " + playerTotal;
         myCoins += 50;
     } else if (playerTotal < computerTotal) {
-        message.innerHTML = "Niemand wins." + " You threw " + playerTotal;
+        message.innerHTML = "No one won." + " Your total is " + playerTotal;
         myCoins -= 5;
     } else if (playerTotal > computerTotal) {
-        message.innerHTML = "Niemand wins." + " You threw " + playerTotal;
+        message.innerHTML = "No one won." + " Your total is " + playerTotal;
         myCoins -= 5;
     }
     computerCoins.textContent = "Coins: " + bankCoins;
     playerCoins.textContent = "Coins: " + myCoins;
-    setTimeout(checkCoins, 5000);
+    checkCoins();
 }
 
 function lower() {
     if (playerTotal < computerTotal) {
-        message.innerHTML = "Player wins!!" + " You threw " + playerTotal;
+        message.innerHTML = "Player wins!!" + " Your total is " + playerTotal;
         bankCoins -= 5;
         myCoins += 5;
     } else if (playerTotal > computerTotal) {
-        message.innerHTML = "Computer wins." + " You threw " + playerTotal;
+        message.innerHTML = "Computer wins." + " Your total is " + playerTotal;
         bankCoins += 5;
         myCoins -= 5;
     } else if (playerTotal == computerTotal) {
-        message.innerHTML = "It's a draw!" + " You also threw " + playerTotal;
+        message.innerHTML = "It's a draw!" + " Your total is also " + playerTotal;
     }
     computerCoins.textContent = "Coins: " + bankCoins;
     playerCoins.textContent = "Coins: " + myCoins;
-    setTimeout(checkCoins, 5000);
+    checkCoins();
 }
 
 function checkCoins() {
     if (myCoins === 0) {
         message.innerHTML = "The game is over, you lose!";
+        computerBtn.disabled = true;
+        playerBtn.disabled = true;
+        higherBtn.disabled = true;
+        drawBtn.disabled = true;
+        lowerBtn.disabled = true;
         return;
     } else if (myCoins >= 100) {
-        message.innerHTML = myCoins + " POINTS!!" + "<br>" + " You win!!";
+        message.innerHTML += "<br>" + myCoins + " COINS!!" + "<br>" + " You win!!";
+        computerBtn.disabled = true;
+        playerBtn.disabled = true;
+        higherBtn.disabled = true;
+        drawBtn.disabled = true;
+        lowerBtn.disabled = true;
         return;
     }
 }

@@ -54,26 +54,26 @@ label {
 }
 
 .message,
-.computerDice1,
-.computerDice2,
-.computerName,
-.playerName,
-.playerDice1,
-.playerDice2 {
+.computer-Dice1,
+.computer-Dice2,
+.computer-Name,
+.player-Name,
+.player-Dice1,
+.player-Dice2 {
     text-align: center;
 }
 
 .message,
-.computerName,
-.playerName {
+.computer-Name,
+.player-Name {
     padding: 3%;
     font-size: 40px;
 }
 
-.computerDice1,
-.computerDice2,
-.playerDice1,
-.playerDice2,
+.computer-Dice1,
+.computer-Dice2,
+.player-Dice1,
+.player-Dice2,
 .seperate {
     width: 50%;
     font-size: 25px;
@@ -97,8 +97,8 @@ label {
     max-width: 40%;
 }
 
-.throwComputer,
-.throwPlayer {
+.throw-Computer,
+.throw-Player {
     display: block;
     margin: 20px auto;
 }
@@ -110,8 +110,8 @@ label {
     clear: both;
 }
 
-.computerCoins,
-.playerCoins {
+.computer-Coins,
+.player-Coins {
     width: 50%;
     float: left;
     text-align: center;
@@ -138,8 +138,8 @@ label {
 }
 
 /*Internet CSS */
-.throwComputer,
-.throwPlayer,
+.throw-Computer,
+.throw-Player,
 .higher,
 .lower,
 .draw,
@@ -168,8 +168,8 @@ label {
     font-size: 18px;
 }
 
-.throwComputer:focus,
-.throwPlayer:focus,
+.throw-Computer:focus,
+.throw-Player:focus,
 .higher:focus,
 .lower:focus,
 .draw:focus,
@@ -177,8 +177,8 @@ label {
     box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }
 
-.throwComputer:hover,
-.throwPlayer:hover,
+.throw-Computer:hover,
+.throw-Player:hover,
 .higher:hover,
 .lower:hover,
 .draw:hover,
@@ -187,12 +187,24 @@ label {
     transform: translateY(-2px);
 }
 
-.throwComputer:active,
-.throwPlayer:active,
+.throw-Computer:active,
+.throw-Player:active,
 .higher:active,
 .lower:active,
 .draw:active,
 .confirm-game-mode:active {
     box-shadow: #D6D6E7 0 3px 7px inset;
     transform: translateY(2px);
+}
+
+.throw-Computer:disabled,
+.throw-Player:disabled,
+.higher:disabled,
+.lower:disabled,
+.draw:disabled,
+.confirm-game-mode:disabled{
+    background-color: darkgrey;
+    color: rgb(68, 68, 68);
+    box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px, rgba(0, 0, 0, 0.3) 0 7px 13px -3px, #8e8e90 0 -3px 0 inset;
+
 }
