@@ -19,6 +19,8 @@ const playerCard2El = document.querySelector('.player-card2');
 const higherBtn = document.querySelector('.higher');
 const drawBtn = document.querySelector('.draw');
 const lowerBtn = document.querySelector('.lower');
+const resetBtn = document.querySelector('.reset-btn');
+const resetContainer = document.querySelector('.reset');
 const message = document.querySelector('.outcome');
 const computerCoins = document.querySelector('.computer-Coins');
 const playerCoins = document.querySelector('.player-Coins');
@@ -320,6 +322,7 @@ function checkCoins() {
         higherBtn.disabled = true;
         drawBtn.disabled = true;
         lowerBtn.disabled = true;
+        resetContainer.classList.toggle('hidden');
         return;
     } else if (myCoins >= 100) {
         message.innerHTML += "<br>" + myCoins + " COINS!!" + "<br>" + " You win!!";
@@ -328,6 +331,7 @@ function checkCoins() {
         higherBtn.disabled = true;
         drawBtn.disabled = true;
         lowerBtn.disabled = true;
+        resetContainer.classList.toggle('hidden');
         return;
     }
 }

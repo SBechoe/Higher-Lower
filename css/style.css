@@ -10,6 +10,84 @@ body {
     height: 100%;
 }
 
+
+
+/*Internet CSS */
+.throw-Computer,
+.throw-Player,
+.higher,
+.lower,
+.draw,
+.reset-btn,
+.confirm-game-mode {
+    background-color: #FCFCFD;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    color: #36395A;
+    cursor: pointer;
+    font-family: "JetBrains Mono", monospace;
+    height: 48px;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s, transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 18px;
+}
+
+.throw-Computer:focus,
+.throw-Player:focus,
+.higher:focus,
+.lower:focus,
+.draw:focus,
+.reset-btn:focus,
+.confirm-game-mode:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.throw-Computer:hover,
+.throw-Player:hover,
+.higher:hover,
+.lower:hover,
+.draw:hover,
+.reset-btn:hover,
+.confirm-game-mode:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.throw-Computer:active,
+.throw-Player:active,
+.higher:active,
+.lower:active,
+.draw:active,
+.reset-btn:active
+.confirm-game-mode:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+.throw-Computer:disabled,
+.throw-Player:disabled,
+.higher:disabled,
+.lower:disabled,
+.draw:disabled,
+.confirm-game-mode:disabled{
+    background-color: darkgrey;
+    color: rgb(68, 68, 68);
+    box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px, rgba(0, 0, 0, 0.3) 0 7px 13px -3px, #8e8e90 0 -3px 0 inset;
+
+}
+
 .wrapper {
     width: 100%;
     height: 100%;
@@ -41,10 +119,6 @@ label {
     background-color: #ffffff99;
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-}
-
-.hidden {
-    display: none;
 }
 
 .computer,
@@ -130,6 +204,19 @@ label {
     margin: 0 10%;
 }
 
+.reset{
+    width: 30%;
+    margin: 0px auto;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.reset-btn{
+    width: 50%;
+    text-align: center;
+}
+
 .footer {
     text-align: center;
     padding-top: 5%;
@@ -137,74 +224,6 @@ label {
     clear: both;
 }
 
-/*Internet CSS */
-.throw-Computer,
-.throw-Player,
-.higher,
-.lower,
-.draw,
-.confirm-game-mode {
-    background-color: #FCFCFD;
-    border-radius: 4px;
-    border-width: 0;
-    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-    color: #36395A;
-    cursor: pointer;
-    font-family: "JetBrains Mono", monospace;
-    height: 48px;
-    line-height: 1;
-    list-style: none;
-    overflow: hidden;
-    padding-left: 16px;
-    padding-right: 16px;
-    text-align: left;
-    text-decoration: none;
-    transition: box-shadow .15s, transform .15s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: nowrap;
-    will-change: box-shadow, transform;
-    font-size: 18px;
-}
-
-.throw-Computer:focus,
-.throw-Player:focus,
-.higher:focus,
-.lower:focus,
-.draw:focus,
-.confirm-game-mode:focus {
-    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-}
-
-.throw-Computer:hover,
-.throw-Player:hover,
-.higher:hover,
-.lower:hover,
-.draw:hover,
-.confirm-game-mode:hover {
-    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-    transform: translateY(-2px);
-}
-
-.throw-Computer:active,
-.throw-Player:active,
-.higher:active,
-.lower:active,
-.draw:active,
-.confirm-game-mode:active {
-    box-shadow: #D6D6E7 0 3px 7px inset;
-    transform: translateY(2px);
-}
-
-.throw-Computer:disabled,
-.throw-Player:disabled,
-.higher:disabled,
-.lower:disabled,
-.draw:disabled,
-.confirm-game-mode:disabled{
-    background-color: darkgrey;
-    color: rgb(68, 68, 68);
-    box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px, rgba(0, 0, 0, 0.3) 0 7px 13px -3px, #8e8e90 0 -3px 0 inset;
-
+.hidden {
+    display: none;
 }
